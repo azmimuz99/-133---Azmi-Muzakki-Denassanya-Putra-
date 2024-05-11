@@ -2,39 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class course 
+class course extends Model
 {
-      private static $courses =  [
-        [
-            "title" => "Microsoft Excel Course",
-            "slug" => "microsoft-excel-course",
-            "Teacher" => "EduAdmin",
-            "body" => "Course Microsoft Excel dirancang untuk memberikan pemahaman mendalam tentang penggunaan aplikasi spreadsheet yang paling populer di dunia."
-        ],
-        [
-            "title" => "Microsoft Office Course",
-            "slug" => "microsoft-office-course",
-            "Teacher" => "EduAdmin",
-            "body" => "Course Microsoft Word dirancang untuk memberikan pemahaman mendalam tentang penggunaan aplikasi pengolah kata yang paling populer di dunia, yaitu Microsoft Word."
-        ]
+    use HasFactory;
+    protected $fillable = [
+        'title', 'slug', 'excerpt', 'body', 'instructor_id','category_id'
+    ];
+    protected $guarded = [
+        'id'
     ];
 
-    public static function all() 
+    public function category()
     {
-        return self::$courses;
+        return $this->belongsTo(Category::class);
     }
-    public static function find($slug) 
-    {
-        $course1 = self::$courses;
-        $course = [];
-    foreach($course as $c) {
-      if($c["slug"] == $slug) {
-          $course = $c;
-        }
-    }
-    
-    return $course;
+    public function user()
+    {   
+        return $this->belongsTo(User::class);
     }
         
-}   
+}

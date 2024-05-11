@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Course;
+use App\Models\category;
 
 Route::get('/', function () {
     return view('home', [
@@ -17,21 +19,27 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/course', function () {
-    $courses = course::all();
-    $title = 'course';
-    return view('course', compact('courses', 'title'));
-});
+Route::get('/course', [CourseController::class, 'index']);
 
 // Halaman Course 1
-Route::get('/course1/{slug}', function ($slug) {
-    $course = course::find($slug);
-    if (!$course) {
-        abort(404);
-    }
-   
-    return view('course1', [
-        "title" => "course pertama",
-        "course" => $course
+Route::get('/courses/{course:slug}', [CourseController::class, 'show']);
+
+// Halaman Category
+Route::get('/categories', [Category::class, 'index']);
+
+Route::get('/categories', function() {
+    return view('categories', [
+        'title' => 'Course Categories',
+        'categories' => Category::all(),
     ]);
 });
+// Halaman Course Category
+Route::get('/categories/{category:slug}', function(Category $category) {
+    return view('category', [
+        'title' => $category->name,
+        'courses' => $category->courses,
+        'category' => $category->name,
+    ]);
+});
+
+  
