@@ -5,7 +5,7 @@
     @foreach ($courses as $course )
     <article> 
         <h2>
-        <a href="/categories/{{ $course->slug }}"class="text-decoration-none">{{ $course->title }}</a>
+        <a href="/courses/{{ $course->slug }}"class="text-decoration-none">{{ $course->title }}</a>
         </h2>
         <h5> Disusun oleh: EduAdmin{{ $course["Teacher"] }}</h5>
         <p>{{ $course->body}}</p>

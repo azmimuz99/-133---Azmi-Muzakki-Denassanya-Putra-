@@ -10,15 +10,16 @@ class CourseController extends Controller
     public function index() 
     {
         return view('course', [
-            "title" => "courses",
-            "courses" => course::all() // Correct usage of the all() method
+            "title" => "PIlihan Course",
+            // "courses" => course::all() // Correct usage of the all() method
+            "courses" => course::latest()->get()
         ]);  
     }
 
     public function show(course $course)
     {
         return view('course1', [
-            "title" => "course pertama",
+            "title" => "course",
             "courses" => $course
         ]);
     }
