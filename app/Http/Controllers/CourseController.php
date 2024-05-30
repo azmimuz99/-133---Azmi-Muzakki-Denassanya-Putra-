@@ -3,24 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\course;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
     public function index() 
+    
     {
+        
+        $course= Course::latest();
+        // @dd(request('search'));
+        if(request('search')) {
+            $course->where('title','like','%'. request('search').'%');
+        }
         return view('course', [
-            "title" => "PIlihan Course",
-            // "courses" => course::all() // Correct usage of the all() method
-            "courses" => course::latest()->get()
-        ]);  
+            "title" => "Course",
+            "active" => 'courses',
+            "courses" => $course->get()
+        ]);
     }
-
+    
     public function show(course $course)
     {
         return view('course1', [
-            "title" => "course",
-            "courses" => $course
+            "title" => "Course Detail",
+            "course" => $course
         ]);
     }
+    
+    
 }

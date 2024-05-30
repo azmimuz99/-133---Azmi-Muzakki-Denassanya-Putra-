@@ -16,14 +16,16 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('excerpt');
+            $table->string('slug');
+            $table->text('excerpt');    
             $table->text('body');
-            $table->string('course_list');
+            $table->text('course_list');
             $table->unsignedInteger('instructor_id'); // ID dari instruktur kursus
             $table->enum('level', ['Beginner', 'Intermediate', 'Advanced']); // Level kursus
+            $table->text('image'); // Kolom untuk menyimpan URL gambar
             $table->timestamps();
         });
+        
     }
 
     /**
