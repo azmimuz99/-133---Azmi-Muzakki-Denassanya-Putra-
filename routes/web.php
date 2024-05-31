@@ -56,18 +56,26 @@ Route::get('/dashboard', function(){
 })->middleware('auth');
 
 Route::get('/coursex/{id}', [CoursexController::class, 'show'])->name('coursex.show');
+Route::get('/question/2', function () {
+    return view('quiz2');
+});
+Route::get('/question/3', function () {
+    return view('quiz3');
+});
+Route::get('/question/4', function () {
+    return view('quiz4');
+});
 
 
-Route::resource('quizzes', QuizController::class);
-Route::get('quizzes/{quiz}/questions/create', [QuestionController::class, 'create'])->name('questions.create');
-Route::get('/quizzes/{quiz}', [QuizController::class, 'show'])->name('quizzes.show');
-Route::get('quizzes/{quiz}/submit', [QuizController::class, 'submit'])->name('quizzes.submit');
-Route::post('quizzes/{quiz}/calculate-score', [QuizController::class, 'calculateScore'])->name('quizzes.calculateScore');
+
+
 Route::get('/question/{question}', [QuestionController::class, 'show'])->name('question.show');
+Route::get('/quiz2/{quiz}', [QuestionController::class, 'quiz2'])->name('quiz2');
+Route::get('/quiz3/{quiz}', [QuestionController::class, 'quiz3'])->name('quiz3');
+Route::get('/quiz4/{quiz}', [QuestionController::class, 'quiz4'])->name('quiz4');
 
 
-// Route to list all quizzes
-Route::get('/quizzes', [QuizController::class, 'index'])->name('quizzes.index');
+
 
 
 

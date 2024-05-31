@@ -1,26 +1,32 @@
 <?php
+// app/Http/Controllers/QuizController.php
+
 namespace App\Http\Controllers;
 
-use App\Models\Quiz;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Question;
 
 class QuizController extends Controller
 {
-    public function index()
-    {
-        $quizzes = Quiz::all(); // Fetch all quizzes
-        return view('quizzes.show', compact('quizzes')); // Pass quizzes to the view
-    }
-
-    public function show(Quiz $quiz)
-    {
-        return view('quizzes.show', compact('quiz'));
-    }
+   
     public function showQuiz()
     {
-        $user = Auth::user();
-        return view('quiz', compact('user'));
+        $question = Question::where('title', 'Kuis Gmail')->firstOrFail();
+        return view('quiz.show', compact('question'));
+    }
+
+    public function submitQuiz(Request $request)
+    {
+        $question = Question::where('title', 'Kuis Gmail')->firstOrFail();
+        $selectedAnswer = $request->input('answer');
+        $correctAnswer = $question->correct_answer;
+
+        if ($selectedAnswer === $correctAnswer) {
+            return back()->with('success', 'Jawaban Anda benar!');
+        } else {
+            return back()->with('error', 'Jawaban Anda salah.');
+        }
     }
 }
+
 

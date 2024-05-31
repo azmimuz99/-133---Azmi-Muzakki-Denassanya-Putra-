@@ -29,10 +29,6 @@
                 }
             </style>
             <p>{!! $course->course_list !!}</p>
-            <h3>Kuis</h3>
-                            <ul>
-                                <li><a href="/question/1" class="text-decoration-none" style="color: black;">Kuis Excel</a><br><small>Uji pengetahuan Anda tentang Excel dengan mengikuti kuis kami.</small></li>
-                            </ul>',
             <a class="btn btn-dark" href="/course">Back to Course</a>
         </div>
     </div>

@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
 
                             <h3>Kuis</h3>
                             <ul>
-                                <li><a href="quizzes/{quiz}/questions" class="text-decoration-none" style="color: black;">Kuis Excel</a><br><small>Uji pengetahuan Anda tentang Excel dengan mengikuti kuis kami.</small></li>
+                                <li><a href="/question/1" class="text-decoration-none" style="color: black;">Kuis Excel</a><br><small>Uji pengetahuan Anda tentang Excel dengan mengikuti kuis kami.</small></li>
                             </ul>'),
             'instructor_id' => '01',
             'category_id' => '1',
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
                             </ul>
                             <h3>Kuis Word</h3>
                             <ul>
-                                <li><a href="" class="text-decoration-none" style="color: black;">Kuis Word</a><br><small>Uji pengetahuan Anda tentang Word dengan mengikuti kuis kami.</small></li>
+                                <li><a href="/question/2" class="text-decoration-none" style="color: black;">Kuis Word</a><br><small>Uji pengetahuan Anda tentang Word dengan mengikuti kuis kami.</small></li>
                             </ul>
                             '),
             'instructor_id' => '01',
@@ -203,7 +203,7 @@ class DatabaseSeeder extends Seeder
 
                             <h3>Kuis PowerPoint</h3>
                             <ul>
-                                <li><a href="" class="text-decoration-none" style="color: black;">Kuis PowerPoint</a><br><small>Uji pengetahuan Anda tentang PowerPoint dengan mengikuti kuis kami.</small></li>
+                                <li><a href="/question/3" class="text-decoration-none" style="color: black;">Kuis PowerPoint</a><br><small>Uji pengetahuan Anda tentang PowerPoint dengan mengikuti kuis kami.</small></li>
                             </ul>
                             '),
             'instructor_id' => '01',
@@ -235,7 +235,7 @@ class DatabaseSeeder extends Seeder
 
                             <h3>Kuis</h3>
                             <ul>
-                                <li><a href="" class="text-decoration-none" style="color: black;">Kuis Gmail</a><br><small>Uji pengetahuan Anda tentang Gmail dengan mengikuti kuis kami.</small></li>
+                                <li><a href="/question/4" class="text-decoration-none" style="color: black;">Kuis Gmail</a><br><small>Uji pengetahuan Anda tentang Gmail dengan mengikuti kuis kami.</small></li>
                             </ul>
                             ',
             'instructor_id' => '01',

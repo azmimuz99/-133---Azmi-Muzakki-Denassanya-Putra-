@@ -18,11 +18,44 @@ class QuestionController extends Controller
         return view('question.show', [
             'quiz' => $quiz,
             'questions' => $questions,
-            'title' => 'Kuis'
+            'title' => 'Kuis Excel'
+        ]);
+    }
+
+    public function quiz2(Quiz $quiz)
+    {
+        $questions = $quiz->questions;
+        // Pass the $quiz variable to the view
+        return view('quiz2', [
+            'quiz' => $quiz,
+            'questions' => $questions,
+            'title' => 'Kuis Word'
+            
         ]);
     }
     
 
+    public function quiz3(Quiz $quiz)
+    {
+        $questions = $quiz->questions;
+         // Define the title variable
+        return view('quiz3', [
+            'quiz' => $quiz,
+            'questions' => $questions,
+            'title' => 'Kuis Power Point' // Pass the title variable to the view
+        ]);
+    }
+
+    public function quiz4(Quiz $quiz)
+    {
+        $questions = $quiz->questions;
+        $title = 'Kuis'; // Define the title variable
+        return view('quiz4', [
+            'quiz' => $quiz,
+            'questions' => $questions,
+            'title' => 'Kuis Gmail' // Pass the title variable to the view
+        ]);
+    }
 
     public function store(Request $request, Quiz $quiz)
     {
